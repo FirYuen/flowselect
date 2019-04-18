@@ -1,7 +1,7 @@
 <template>
   <div class="hello">
     <h2>Why is handover needed?</h2>
-    <el-cascader :options="options" v-model="result" :show-all-levels="false" popper-class="aaaa"></el-cascader>
+    <el-cascader :options="options" v-model="result" :show-all-levels="false" visible-change="test" :change-on-select="false" popper-class="aaaa"></el-cascader>
     <el-button @click="showResult">show Result</el-button>
     <!-- <el-dialog :title="currentResult.title" :visible.sync="dialogVisible" width="80%"> -->
          <el-dialog  :visible.sync="dialogVisible" width="80%">
@@ -103,7 +103,7 @@ Manager is accountable for the cases`
         },
         result12: {
           title: "Do Not Handover",
-          text: ""
+          text: "<h1>Do Not Handover</h1>"
         }
       },
       options: [
@@ -388,6 +388,10 @@ Manager is accountable for the cases`
       let lastResult = this.result[this.result.length - 1];
       this.currentResult = this.results[lastResult];
       this.dialogVisible = true;
+    },
+    test:function () {
+      console.log('1')
+      
     }
   }
 };
